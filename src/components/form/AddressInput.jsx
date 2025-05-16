@@ -1,0 +1,29 @@
+import { useRef, useState } from "react";
+import './Input.scss';
+
+export default function AddressInput(props) {
+
+    const [error, setError] = useState(false)
+    const inputElement = useRef(null)
+    const regExIcludesNumber = /\d/
+    
+    function changeHandler() {
+        
+        const value = inputElement.current.value
+
+        if (value.length < 2) {
+            setError('ugyldig adresse.')
+        } else if (!value.match(regExIcludesNumber)) {
+            setError('Ugyldig adresse.')
+        } else {
+            setError(false)
+        }
+    }
+
+    return (
+        <>
+            <input ref={inputElement} onChange={changeHandler} type="text" {...props} />
+            {error && <p className="error-message">{error}</p>}
+        </>
+    )
+}
