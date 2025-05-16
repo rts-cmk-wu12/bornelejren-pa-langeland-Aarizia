@@ -1,0 +1,102 @@
+@use './variables';
+
+#root {
+    font-family: variables.$font-face-default;
+    
+    h1, h2, h3, h4 {
+        font-family: variables.$font-face-heading;
+    }
+
+    h2 {
+        color: variables.$color-accent;
+        text-align: center;
+    }
+    
+    h3 {
+        text-align: center;
+        color: variables.$color-accent;
+    }
+
+    p {
+        line-height: 1.25lh;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    address {
+        font-style: normal;
+    }
+
+    display: grid;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer'
+    ;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+
+    header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        overflow: hidden scroll;
+        background-color: variables.$color-light;
+        color: variables.$color-dark;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    .font-weight-bold {
+        font-weight: 700;
+    }
+
+    .line-break {
+        display: block;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+
+    .padding {
+        padding: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .padding-top {
+        padding-block-start: 0.5rem;
+    }
+
+    .align-self-bottom {
+        margin-top: auto;
+    }
+
+    @media (min-width: 50.01rem) {
+        margin: 0 auto;
+
+        main {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            line-height: 1.5lh;
+        }
+    }
+}

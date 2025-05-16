@@ -1,0 +1,30 @@
+@use '../../style/variables';
+
+.header-menu {
+    position: relative;
+
+    &-list {
+    
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1rem;
+        transition: transform 200ms ease-out;
+        background-color: variables.$color-accent;
+        position: absolute;
+        top: 2.5rem;
+        right: -1rem;
+        padding: 1rem;
+        border-radius: 0.125rem;
+        z-index: 100;
+    }
+
+    @media (min-width: 50.01rem) {
+
+        &-list__item a:hover {
+            
+            text-decoration: underline;
+        }
+    }
+
+}
